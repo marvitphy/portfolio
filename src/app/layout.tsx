@@ -20,8 +20,8 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Marcos Vitor · Fundador & CTO da LoveTickets",
-  description: "Founder-engineer. Construo produtos de ponta a ponta e orquestro frotas de IA que desenvolvem em paralelo, em produção.",
+  title: "Marcos Vitor · Fundador & CTO da lovetickets",
+  description: "Engenheiro de software e founder. Penso o produto e construo a engenharia que o sustenta, do primeiro traço ao deploy.",
 };
 
 export default function RootLayout({

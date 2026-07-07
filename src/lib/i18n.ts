@@ -15,7 +15,7 @@ type Project = {
 };
 
 type Content = {
-  nav: { projetos: string; stack: string; decisoes: string; contato: string };
+  nav: { sobre: string; projetos: string; stack: string; decisoes: string; contato: string };
   hero: {
     role: string;
     base: string;
@@ -26,6 +26,7 @@ type Content = {
     ctaSecondary: string;
     scroll: string;
   };
+  about: { eyebrow: string; lead: string; body: string[]; portraitAlt: string };
   projects: { eyebrow: string; lead: string; items: Project[] };
   stack: { eyebrow: string; lead: string; groups: { label: string; items: string[] }[] };
   principles: {
@@ -41,9 +42,9 @@ type Content = {
  *  Tom: seco e factual, sem hype, sem travessão (regra do projeto). */
 export const dict: Record<Lang, Content> = {
   pt: {
-    nav: { projetos: "Projetos", stack: "Stack", decisoes: "Decisões", contato: "Contato" },
+    nav: { sobre: "Sobre", projetos: "Projetos", stack: "Stack", decisoes: "Decisões", contato: "Contato" },
     hero: {
-      role: "Fundador & CTO da LoveTickets",
+      role: "Fundador & CTO da lovetickets",
       base: "Imperatriz, MA · Brasil",
       name: "Marcos Vitor",
       title: ["Produto", "e engenharia."],
@@ -52,13 +53,22 @@ export const dict: Record<Lang, Content> = {
       ctaSecondary: "Falar comigo",
       scroll: "Role para ver",
     },
+    about: {
+      eyebrow: "Sobre",
+      lead: "Engenheiro de software e founder.",
+      body: [
+        "Trabalho do produto ao código: defino o que construir e construo, do app ao back office ao sistema que orquestra o resto. Fundei a lovetickets e sigo à frente da engenharia.",
+        "Uso IA como ferramenta de fábrica, não de vitrine. Opero de Imperatriz, no Maranhão.",
+      ],
+      portraitAlt: "Retrato de Marcos Vitor",
+    },
     projects: {
       eyebrow: "Projetos",
       lead: "O que eu construí.",
       items: [
         {
           id: "01",
-          name: "LoveTickets",
+          name: "lovetickets",
           kind: "Plataforma de ingressos e gestão de eventos",
           desc: "Ecossistema de 7 serviços que cobre o ciclo inteiro: venda online com PIX e cartão, app nativo com dois lados num só binário (o consumidor compra e guarda ingressos, o produtor cria eventos e vende no balcão), check-in na portaria, maquininha física e back office financeiro. Fundei e construo desde o início.",
           metrics: [
@@ -160,9 +170,9 @@ export const dict: Record<Lang, Content> = {
     },
   },
   en: {
-    nav: { projetos: "Projects", stack: "Stack", decisoes: "Decisions", contato: "Contact" },
+    nav: { sobre: "About", projetos: "Projects", stack: "Stack", decisoes: "Decisions", contato: "Contact" },
     hero: {
-      role: "Founder & CTO at LoveTickets",
+      role: "Founder & CTO at lovetickets",
       base: "Imperatriz, Brazil",
       name: "Marcos Vitor",
       title: ["Product", "and engineering."],
@@ -171,13 +181,22 @@ export const dict: Record<Lang, Content> = {
       ctaSecondary: "Get in touch",
       scroll: "Scroll to explore",
     },
+    about: {
+      eyebrow: "About",
+      lead: "Software engineer and founder.",
+      body: [
+        "I work from product to code: I define what to build and I build it, from the app to the back office to the system that orchestrates the rest. I founded lovetickets and still lead its engineering.",
+        "I use AI as a factory tool, not a showpiece. I work out of Imperatriz, in northern Brazil.",
+      ],
+      portraitAlt: "Portrait of Marcos Vitor",
+    },
     projects: {
       eyebrow: "Projects",
       lead: "What I've built.",
       items: [
         {
           id: "01",
-          name: "LoveTickets",
+          name: "lovetickets",
           kind: "Ticketing and event management platform",
           desc: "An ecosystem of 7 services covering the full cycle: online sales with PIX and card, a native app with two sides in a single binary (the consumer buys and holds tickets, the producer creates events and sells at the counter), door check-in, a physical card reader, and a financial back office. I founded it and build it from the ground up.",
           metrics: [

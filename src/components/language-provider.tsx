@@ -7,10 +7,11 @@ type Ctx = { lang: Lang; t: Dict; setLang: (l: Lang) => void };
 
 const LanguageContext = createContext<Ctx | null>(null);
 
-/** Detecta o idioma: brasileiro (navigator pt) vê PT; qualquer outro vê EN.
- *  Guarda a escolha manual no localStorage. Sem lib, sem rotas /en. */
+/** Idioma padrão: PT. Só troca pra EN se NENHUM idioma preferido do usuário for
+ *  português (a lista inteira de navigator.languages, não só o principal — um
+ *  tablet BR com sistema em inglês ainda costuma listar pt). Escolha manual manda
+ *  e fica no localStorage. Sem lib, sem rotas /en. */
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  // Server e primeiro paint: PT (evita hydration mismatch). O efeito ajusta no cliente.
   const [lang, setLangState] = useState<Lang>("pt");
 
   useEffect(() => {
@@ -19,8 +20,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       setLangState(saved);
       return;
     }
-    const nav = navigator.language.toLowerCase();
-    setLangState(nav.startsWith("pt") ? "pt" : "en");
+    const prefs = navigator.languages?.length ? navigator.languages : [navigator.language];
+    const prefersPt = prefs.some((l) => l.toLowerCase().startsWith("pt"));
+    setLangState(prefersPt ? "pt" : "en");
   }, []);
 
   useEffect(() => {

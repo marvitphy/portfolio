@@ -1,5 +1,6 @@
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
 import { Projects } from "@/components/projects";
 import { Stack } from "@/components/stack";
 import { Principles } from "@/components/principles";
@@ -11,7 +12,8 @@ export default function Home() {
       <Nav />
       <main className="mx-auto max-w-[1600px]">
         <Hero />
-        {/* PROJETOS é o eixo central: LoveTickets (com métricas), Twin, ByteTribe */}
+        <About />
+        {/* PROJETOS é o eixo central: lovetickets (com métricas), Twin, ByteTribe */}
         <Projects />
         <Stack />
         <Principles />

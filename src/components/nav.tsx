@@ -8,6 +8,7 @@ export function Nav() {
   const { t, lang, setLang } = useI18n();
 
   const links = [
+    { label: t.nav.sobre, href: "#sobre" },
     { label: t.nav.projetos, href: "#projetos" },
     { label: t.nav.stack, href: "#stack" },
     { label: t.nav.decisoes, href: "#decisoes" },
