@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   TERMINAL EDITORIAL — dark premium com alma de engenheiro.
+   Quase-preto quente + acento âmbar afiado + grão. Sem roxo, sem
+   gradiente clichê. A cor quente (âmbar) sobre o frio é a assinatura.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --bg: #0a0a0b;            /* quase preto, levemente quente */
+  --bg-elev: #101012;       /* superfície elevada */
+  --ink: #ededec;           /* texto primário */
+  --ink-dim: #8a8a86;       /* secundário */
+  --ink-faint: #55554f;     /* meta / rodapé */
+  --line: rgba(255, 255, 255, 0.09);  /* hairlines */
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --accent: #ff6a1a;        /* âmbar-laranja — a assinatura quente */
+  --accent-dim: #c4531a;
+  --selection: rgba(255, 106, 26, 0.28);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-ink: var(--ink);
+  --color-ink-dim: var(--ink-dim);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-display), sans-serif;
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--ink);
+}
+
+/* Grão de filme — a textura que tira o "flat" do fundo. Fixo, sutil,
+   pointer-events none. SVG de ruído inline, sem asset externo. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ── Tipografia da hierarquia editorial ── */
+.font-mono { font-family: var(--font-mono), monospace; }
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.display-xl {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  font-size: clamp(3rem, 11vw, 8.5rem);
+}
+
+/* Assinatura do nome no hero — kicker mono, calmo, intencional. */
+.hero-name {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* Grade de engenharia sutil ao fundo do hero — profundidade sem clichê.
+   Duas famílias de hairlines, fade radial pras bordas não pesarem. */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: clamp(48px, 7vw, 96px) clamp(48px, 7vw, 96px);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 30% 40%, #000 30%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 80% at 30% 40%, #000 30%, transparent 78%);
+}
+
+.display-lg {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
